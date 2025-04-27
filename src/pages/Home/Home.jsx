@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "./Slider";
 import CategoryCard from "../../components/common/CategoryCard";
-
+import SectionTitle from "../../components/common/SectionTitle";
+import ProductCard from "../../components/common/ProductCard";
 const Home = () => {
+  const [products, setProducts] = useState(null);
   const categoryProduct = [
     {
       _id: 1,
@@ -44,20 +46,47 @@ const Home = () => {
     },
   ];
 
+  useEffect(() => {
+    fetch("./products.json")
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
+  }, []);
+
   return (
     <div className="mb-60">
       <Slider />
       <main className="max-w-[95%] mx-auto">
         {/* Category Section */}
         <div>
-          <h2 className="text-2xl font-bold mt-10 mb-2">Shop by Category</h2>
-          <p className="text-gray-600 mb-8">
+          <h2 className="text-2xl font-semibold mt-10 mb-6">
+            <span className="text-[#47aaf5ec]">Shop</span> by Category
+          </h2>
+          {/* <p className="text-gray-600 mb-8">
             Discover the perfect products from our wide range of categories
-          </p>
+          </p> */}
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-9 gap-6">
             {categoryProduct.map((product) => (
               <CategoryCard key={product._id} product={product} />
+            ))}
+          </div>
+        </div>
+        {/* Featured Products */}
+        <div>
+          {/* <SectionTitle
+            title={"Featured Products"}
+            subtitle={"Discover Our Best-Selling and Most Loved Items"}
+          /> */}
+          <h2 className="text-4xl font-semibold text-center pt-10">
+            <span className="text-[#47aaf5ec]">Featured</span> Products
+          </h2>
+          <p className="text-center mb-10">
+            Discover Our Best-Selling and Most Loved Items
+          </p>
+          {/* Product Section */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            {products?.map((product) => (
+              <ProductCard key={product?._id} product={product} />
             ))}
           </div>
         </div>
