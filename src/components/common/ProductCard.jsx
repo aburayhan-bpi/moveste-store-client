@@ -9,7 +9,7 @@ const ProductCard = ({ product = {} }) => {
       {/* Image Section */}
       <div className="h-60 w-full overflow-hidden">
         <img
-          className="w-full h-full object-cover cursor-pointer"
+          className="w-full h-full object-fill md:object-cover cursor-pointer"
           src={product?.image}
           alt={product?.title}
         />
@@ -58,10 +58,10 @@ const ProductCard = ({ product = {} }) => {
 
         {/* Delivery Info */}
         <div className="flex items-center justify-between text-xs text-gray-500">
-          <p className="flex items-center gap-1">
+          <p className="flex items-center gap-1 text-xs">
             <TbTruckDelivery /> {product?.deliveryInfo}
           </p>
-          <p className="flex items-center gap-1">
+          <p className="flex items-center gap-1 text-xs">
             <TbRosetteDiscountCheck /> {product?.tag}
           </p>
         </div>

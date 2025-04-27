@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
 import Slider from "./Slider";
 import CategoryCard from "../../components/common/CategoryCard";
-import SectionTitle from "../../components/common/SectionTitle";
-import ProductCard from "../../components/common/ProductCard";
+import FeaturedSection from "./FeaturedSection/FeaturedSection";
+
 const Home = () => {
-  const [products, setProducts] = useState(null);
   // const [loading, setLoading] = useStaste(false);
   const categoryProduct = [
     {
@@ -47,14 +45,6 @@ const Home = () => {
     },
   ];
 
-  useEffect(() => {
-    fetch("./products.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data);
-      });
-  }, []);
-
   return (
     <div className="mb-60">
       <Slider />
@@ -75,24 +65,7 @@ const Home = () => {
           </div>
         </div>
         {/* Featured Products */}
-        <div>
-          {/* <SectionTitle
-            title={"Featured Products"}
-            subtitle={"Discover Our Best-Selling and Most Loved Items"}
-          /> */}
-          <h2 className="text-4xl font-semibold text-center pt-10">
-            <span className="text-[#47aaf5ec]">Featured</span> Products
-          </h2>
-          <p className="text-center mb-10">
-            Discover Our Best-Selling and Most Loved Items
-          </p>
-          {/* Product Section */}
-          <div className="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
-            {products?.map((product) => (
-              <ProductCard key={product?._id} product={product} />
-            ))}
-          </div>
-        </div>
+        <FeaturedSection />
       </main>
     </div>
   );

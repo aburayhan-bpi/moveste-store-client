@@ -1,0 +1,81 @@
+import React, { useEffect, useState } from "react";
+import ProductCard from "../../../components/common/ProductCard";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+// Import required modules
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+
+const FeaturedSection = () => {
+  const [products, setProducts] = useState(null);
+
+  useEffect(() => {
+    fetch("./products.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data);
+      });
+  }, []);
+
+  return (
+    <div className="py-12">
+      <div className="text-center mb-8">
+        <h2 className="text-4xl font-semibold">
+          <span className="text-[#47aaf5ec]">Featured</span> Products
+        </h2>
+        <p className="text-gray-600">
+          Discover Our Best-Selling and Most Loved Items
+        </p>
+      </div>
+
+      {/* Swiper Section */}
+      <div className="px-2 md:px-0">
+        <Swiper
+          slidesPerView={1}
+          //   spaceBetween={0}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          //   pagination={{
+          //     clickable: true,
+          //   }}
+          navigation={true}
+          modules={[Autoplay, Pagination, Navigation]}
+          breakpoints={{
+            640: {
+              slidesPerView: 2,
+            },
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 1,
+            },
+            1024: {
+              slidesPerView: 4,
+            },
+            1280: {
+              slidesPerView: 5,
+            },
+            1440: {
+              slidesPerView: 6,
+            },
+          }}
+          className="mySwiper"
+        >
+          {products?.map((product) => (
+            <SwiperSlide key={product?._id} className="p-2">
+              <ProductCard product={product} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </div>
+  );
+};
+
+export default FeaturedSection;

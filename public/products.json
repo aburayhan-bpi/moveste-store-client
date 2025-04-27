@@ -82,5 +82,89 @@
     "tag": "Limited Offer",
     "price": 1249,
     "bookmarked": true
+  },
+  {
+    "_id": "7",
+    "title": "Trendy Cotton Tee",
+    "image": "https://i.ibb.co/mFSjxsHz/67caef6aa670a-img.png",
+    "discount": "Up to 45% off",
+    "rating": {
+      "score": 4.6,
+      "reviews": 320
+    },
+    "deliveryInfo": "Fast Delivery",
+    "tag": "Limited Offer",
+    "price": 1249,
+    "bookmarked": true
+  },
+  {
+    "_id": "8",
+    "title": "Trendy Cotton Tee",
+    "image": "https://i.ibb.co/mFSjxsHz/67caef6aa670a-img.png",
+    "discount": "Up to 45% off",
+    "rating": {
+      "score": 4.6,
+      "reviews": 320
+    },
+    "deliveryInfo": "Fast Delivery",
+    "tag": "Limited Offer",
+    "price": 1249,
+    "bookmarked": true
+  },
+  {
+    "_id": "9",
+    "title": "Trendy Cotton Tee",
+    "image": "https://i.ibb.co/mFSjxsHz/67caef6aa670a-img.png",
+    "discount": "Up to 45% off",
+    "rating": {
+      "score": 4.6,
+      "reviews": 320
+    },
+    "deliveryInfo": "Fast Delivery",
+    "tag": "Limited Offer",
+    "price": 1249,
+    "bookmarked": true
+  },
+  {
+    "_id": "10",
+    "title": "Trendy Cotton Tee",
+    "image": "https://i.ibb.co/mFSjxsHz/67caef6aa670a-img.png",
+    "discount": "Up to 45% off",
+    "rating": {
+      "score": 4.6,
+      "reviews": 320
+    },
+    "deliveryInfo": "Fast Delivery",
+    "tag": "Limited Offer",
+    "price": 1249,
+    "bookmarked": true
+  },
+  {
+    "_id": "11",
+    "title": "Trendy Cotton Tee",
+    "image": "https://i.ibb.co/mFSjxsHz/67caef6aa670a-img.png",
+    "discount": "Up to 45% off",
+    "rating": {
+      "score": 4.6,
+      "reviews": 320
+    },
+    "deliveryInfo": "Fast Delivery",
+    "tag": "Limited Offer",
+    "price": 1249,
+    "bookmarked": true
+  },
+  {
+    "_id": "12",
+    "title": "Trendy Cotton Tee",
+    "image": "https://i.ibb.co/mFSjxsHz/67caef6aa670a-img.png",
+    "discount": "Up to 45% off",
+    "rating": {
+      "score": 4.6,
+      "reviews": 320
+    },
+    "deliveryInfo": "Fast Delivery",
+    "tag": "Limited Offer",
+    "price": 1249,
+    "bookmarked": true
   }
 ]
