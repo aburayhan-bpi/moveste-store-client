@@ -42,7 +42,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="bg-sky-50">
+    <div className="bg-sky-50 fixed z-40 top-0 left-0 right-0 w-full">
       <div className="flex items-center justify-between py-4 px-4 lg:px-6 w-full mx-auto">
         {/* Left - Logo */}
         <div className="flex flex-1 items-center gap-1">
@@ -105,7 +105,7 @@ const Navbar = () => {
 
       {/* Mobile Menu - Toggle visibility based on `menuOpen` state */}
       <div
-        className={`lg:hidden fixed  left-0 w-full h-full ${
+        className={`lg:hidden fixed top-18 left-0 w-full h-fit ${
           menuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
         } transition-all duration-300 ease-in-out bg-white px-4 py-4 z-10`}
       >

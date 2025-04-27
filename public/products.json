@@ -1,0 +1,68 @@
+{
+  "categories": [
+    {
+      "_id": "Perfume",
+      "name": "Perfume",
+      "products": [
+        {
+          "_id": 1,
+          "title": "Armaf | Club De Nuit - 5ml - Perfume",
+          "description": "A luxury fragrance with notes of rose, jasmine, and vanilla.",
+          "price": 420.0,
+          "currency": "bdt",
+          "image_url": "https://i.ibb.co/0jLJ9krR/680cedb80dc2c-img.png",
+          "rating": 4.7,
+          "specifications": "5ml"
+        },
+        {
+          "_id": 2,
+          "title": "Armaf | Club De Nuit - 5ml - Perfume",
+          "description": "A luxury fragrance with notes of rose, jasmine, and vanilla.",
+          "price": 420.0,
+          "currency": "bdt",
+          "image_url": "https://example.com/images/luxury-perfume.jpg",
+          "rating": 4.7,
+          "specifications": {
+            "size": "50ml",
+            "fragrance_notes": ["Rose", "Jasmine", "Vanilla"],
+            "bottle_material": "Glass"
+          },
+          "created_at": "2025-04-27T12:00:00Z",
+          "updated_at": "2025-04-27T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "_id": "Cloths",
+      "name": "Cloths",
+      "products": [
+        {
+          "_id": 3,
+          "title": "Another Zone Olive green socks - Socks",
+          "description": "Comfortable and stylish men's shirt in a variety of colors.",
+          "price": 199.0,
+          "image_url": "https://i.ibb.co/rfM1zMdz/67dc35766b256-img.png",
+          "rating": 4.6,
+          "specifications": {
+            "material": "Cotton"
+          }
+        },
+        {
+          "_id": 4,
+          "title": "Women's Winter Jacket",
+          "description": "Warm and stylish winter jacket for women, perfect for cold weather.",
+          "price": 89.99,
+          "image_url": "https://example.com/images/womens-winter-jacket.jpg",
+          "rating": 4.8,
+          "specifications": {
+            "material": "Polyester",
+            "sizes_available": ["S", "M", "L"],
+            "color": "Black"
+          },
+          "created_at": "2025-04-27T12:00:00Z",
+          "updated_at": "2025-04-27T12:00:00Z"
+        }
+      ]
+    }
+  ]
+}
