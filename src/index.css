@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+a.active {
+  color: green;
+}
+a {
+  position: relative;
+  text-decoration: none;
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: green;
+  transition: width 0.3s ease;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  a.active {
+    font-weight: 500;
+  }
+  a:hover::after {
+    width: 0%;
+  }
+}
