@@ -5,6 +5,7 @@ import SectionTitle from "../../components/common/SectionTitle";
 import ProductCard from "../../components/common/ProductCard";
 const Home = () => {
   const [products, setProducts] = useState(null);
+  // const [loading, setLoading] = useStaste(false);
   const categoryProduct = [
     {
       _id: 1,
@@ -49,7 +50,9 @@ const Home = () => {
   useEffect(() => {
     fetch("./products.json")
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => {
+        setProducts(data);
+      });
   }, []);
 
   return (
@@ -84,7 +87,7 @@ const Home = () => {
             Discover Our Best-Selling and Most Loved Items
           </p>
           {/* Product Section */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+          <div className="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
             {products?.map((product) => (
               <ProductCard key={product?._id} product={product} />
             ))}
