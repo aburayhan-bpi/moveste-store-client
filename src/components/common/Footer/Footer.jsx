@@ -29,6 +29,7 @@ const Footer = () => {
                 moveste2230@gmail.com
               </p>
             </div>
+
             <div className="flex justify-center lg:justify-start mt-4 space-x-4 text-xl">
               <FaFacebook className="hover:text-blue-600 cursor-pointer" />
               <FaTwitter className="hover:text-blue-400 cursor-pointer" />
@@ -104,6 +105,10 @@ const Footer = () => {
               <li>
                 <Link>Cookie Policy</Link>
               </li>
+              {/* Payment Image */}
+              <div className="relative -left-3 top-1">
+                <img className="w-44" src="./images/payment.png" alt="" />
+              </div>
             </ul>
           </div>
         </div>

@@ -82,7 +82,7 @@ const Navbar = () => {
             <li className="hidden lg:block list-none">
               <NavLink
                 to="/auth/login"
-                className="flex items-center gap-1 text-lg hover:text-green-700 transition-colors duration-300"
+                className="flex items-center gap-1 text-lg hover:text-green-700 transition-colors duration-300 no-underline"
               >
                 <CiLogin />
                 Login

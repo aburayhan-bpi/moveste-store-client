@@ -11,7 +11,7 @@ import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Link } from "react-router";
 
-const FeaturedSection = () => {
+const NewlyAddedProducts = () => {
   const [products, setProducts] = useState(null);
 
   useEffect(() => {
@@ -26,11 +26,9 @@ const FeaturedSection = () => {
     <div className="pt-16 transition-all duration-200">
       <div className="text-center mb-8">
         <h2 className="text-4xl font-semibold">
-          <span className="text-[#47aaf5ec]">Featured</span> Products
+          <span className="text-[#47aaf5ec]">Newly</span> Added
         </h2>
-        <p className="text-gray-600">
-          Discover Our Best-Selling and Most Loved Items
-        </p>
+        <p className="text-gray-600">Fresh Arrivals Designed for You</p>
       </div>
 
       {/* Swiper Section */}
@@ -86,4 +84,4 @@ const FeaturedSection = () => {
   );
 };
 
-export default FeaturedSection;
+export default NewlyAddedProducts;
