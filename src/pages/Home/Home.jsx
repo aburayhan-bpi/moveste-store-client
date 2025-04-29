@@ -1,6 +1,11 @@
 import Slider from "./Slider";
 import CategoryCard from "../../components/common/CategoryCard";
 import FeaturedSection from "./FeaturedSection/FeaturedSection";
+import { TbTruckDelivery } from "react-icons/tb";
+import { CiDeliveryTruck } from "react-icons/ci";
+import PolicyHighlightsCard from "../../components/common/PolicyHighlightsCard";
+
+import PolicyHighlights from "./PolicyHighlights/PolicyHighlights";
 
 const Home = () => {
   // const [loading, setLoading] = useStaste(false);
@@ -46,7 +51,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="mb-60">
+    <div className="">
       <Slider />
       <main className="max-w-7xl mx-auto px-4 xl:px-0">
         {/* Category Section */}
@@ -66,8 +71,9 @@ const Home = () => {
         </div>
         {/* Featured Products */}
         <FeaturedSection />
+        {/* Payment & Refund System */}
+        <PolicyHighlights />
       </main>
-      {/*  */}
     </div>
   );
 };

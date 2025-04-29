@@ -1,4 +1,6 @@
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { IoMailOutline } from "react-icons/io5";
+import { PiPhoneCallThin } from "react-icons/pi";
 import { Link } from "react-router";
 
 const Footer = () => {
@@ -11,18 +13,20 @@ const Footer = () => {
             <div className="flex justify-center lg:justify-start">
               <h2 className="text-2xl font-bold">MoVeste</h2>
             </div>
-            <p className="text-sm text-center lg:text-left mt-2">
+            <p className="text-sm text-center lg:text-left mt-2 mb-1">
               MoVeste is your favorite fashion brand.
             </p>
-            <div className="py-1">
-              <p className="text-sm text-center lg:text-left">
-                Phone: +880 1684 410851
+            <div className="py-1 flex flex-col items-center lg:items-start justify-center lg:justify-start">
+              <p className="flex items-center gap-1 text-sm text-center lg:text-left">
+                <PiPhoneCallThin className="text-lg" />
+                +880 1684 410851
               </p>
-              <p className="text-sm text-center lg:text-left">
-                Phone: +880 1894 567180
+              <p className="flex items-center gap-1 text-sm text-center lg:text-left">
+                <PiPhoneCallThin className="text-lg" /> +880 1894 567180
               </p>
-              <p className="text-sm text-center lg:text-left">
-                Email: moveste2230@gmail.com
+              <p className="flex items-center gap-1 text-sm text-center lg:text-left">
+                <IoMailOutline className="text-lg" />
+                moveste2230@gmail.com
               </p>
             </div>
             <div className="flex justify-center lg:justify-start mt-4 space-x-4 text-xl">
@@ -104,7 +108,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t pt-6 text-sm text-center text-gray-500">
+        <div className="border-t border-gray-200 pt-6 text-sm text-center text-gray-500">
           &copy; {new Date().getFullYear()}{" "}
           <span className="font-semibold">MoVeste</span>. All rights reserved.
         </div>
