@@ -13,7 +13,9 @@ const PolicyHighlightsCard = ({ icon, title, subtitle }) => {
         />
       </div>
       <div className="text-center sm:text-left lg:text-center xl:text-left">
-        <p className="font-semibold text-sm md:text-base">{title}</p>
+        <p className="font-semibold text-sm md:text-base text-sky-800">
+          {title}
+        </p>
         <p className="text-gray-400 text-xs md:text-sm font-light">
           {subtitle}
         </p>

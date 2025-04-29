@@ -11,12 +11,14 @@ body {
 a.active {
   color: green;
 }
-a {
+
+/* Only target <a> tags that DON'T have the no-underline class */
+a:not(.no-underline) {
   position: relative;
   text-decoration: none;
 }
 
-a::after {
+a:not(.no-underline)::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -27,15 +29,24 @@ a::after {
   transition: width 0.3s ease;
 }
 
-a:hover::after {
+a:not(.no-underline):hover::after {
   width: 100%;
+}
+
+/* Keep your other existing styles as-is */
+body {
+  font-family: "Outfit", sans-serif;
+}
+
+a.active {
+  color: green;
 }
 
 @media screen and (max-width: 768px) {
   a.active {
     font-weight: 500;
   }
-  a:hover::after {
+  a:not(.no-underline):hover::after {
     width: 0%;
   }
 }
