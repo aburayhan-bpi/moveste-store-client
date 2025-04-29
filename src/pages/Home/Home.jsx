@@ -48,7 +48,7 @@ const Home = () => {
   return (
     <div className="mb-60">
       <Slider />
-      <main className="max-w-[95%] mx-auto">
+      <main className="max-w-7xl mx-auto px-4 xl:px-0">
         {/* Category Section */}
         <div>
           <h2 className="text-2xl font-semibold mt-10 mb-6">
@@ -67,6 +67,7 @@ const Home = () => {
         {/* Featured Products */}
         <FeaturedSection />
       </main>
+      {/*  */}
     </div>
   );
 };

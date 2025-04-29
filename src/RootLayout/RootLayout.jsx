@@ -1,8 +1,9 @@
 import React from "react";
-import { Outlet } from "react-router"; // Small fix: react-router-dom
+import { Outlet } from "react-router";
 import Navbar from "../components/common/Navbar/Navbar";
 import Footer from "../components/common/Footer/Footer";
-import { motion, useScroll } from "framer-motion"; // Correct import!
+// eslint-disable-next-line no-unused-vars
+import { motion, useScroll } from "framer-motion";
 
 const RootLayout = () => {
   const { scrollYProgress } = useScroll();
@@ -23,13 +24,10 @@ const RootLayout = () => {
           zIndex: 50,
         }}
       />
-
       {/* Navbar */}
       <Navbar />
-
       {/* Main Content */}
       <Outlet />
-
       {/* Footer */}
       <Footer />
     </div>
