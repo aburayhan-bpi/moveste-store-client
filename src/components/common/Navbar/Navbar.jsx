@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { CiLogin, CiShop, CiShoppingCart } from "react-icons/ci";
 import { IoHomeOutline } from "react-icons/io5";
 import { RiCloseLargeLine } from "react-icons/ri";
@@ -6,6 +6,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { NavLink } from "react-router";
 
 const Navbar = () => {
+  const menuRef = useRef();
   const [menuOpen, setMenuOpen] = useState(false); // State to handle menu toggle
   const [searchText, setSearchText] = useState("");
 
@@ -41,6 +42,19 @@ const Navbar = () => {
     </>
   );
 
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuOpen]);
+
   return (
     <div className="bg-sky-50 fixed z-40 top-0 left-0 right-0 w-full">
       <div className="  max-w-7xl mx-auto px-0 lg:px-4 xl:px-0">
@@ -66,7 +80,7 @@ const Navbar = () => {
               <input
                 value={searchText}
                 onChange={(e) => setSearchText(e.target.value)}
-                className="border border-gray-300 rounded-lg py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-400 transition duration-300 shadow-sm"
+                className="border border-gray-300 rounded-lg py-2 px-4 w-full focus:outline-none placeholder-gray-400 transition duration-300 focus:shadow-sm"
                 type="text"
                 placeholder="Search items here..."
               />
@@ -108,11 +122,12 @@ const Navbar = () => {
 
         {/* Mobile Menu - Toggle visibility based on `menuOpen` state */}
         <div
-          className={`lg:hidden fixed top-18 left-0 w-full h-fit ${
+          ref={menuRef}
+          className={`lg:hidden fixed top-[72px] left-0 w-full ${
             menuOpen
               ? "translate-x-0 opacity-100"
               : "translate-x-full opacity-0"
-          } transition-all duration-300 ease-in-out bg-white px-4 py-4 z-10`}
+          } transition-all duration-200 ease-in-out bg-white/70 backdrop-blur-md px-4 py-4 z-30`}
         >
           <ul className="space-y-4">
             {links}

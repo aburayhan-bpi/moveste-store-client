@@ -33,7 +33,7 @@ const Slider = () => {
   ];
 
   return (
-    <div className="w-full h-[600px] relative">
+    <div className="w-full h-[500px] md:h-[90vh] relative">
       <Swiper
         autoplay={{
           delay: 3000,
@@ -43,7 +43,7 @@ const Slider = () => {
         pagination={{
           clickable: true,
         }}
-        navigation={true}
+        // navigation={true}
         rewind={true}
         modules={[Autoplay, Pagination, Navigation]}
         className="w-full h-full"
