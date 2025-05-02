@@ -27,7 +27,9 @@ const RootLayout = () => {
       {/* Navbar */}
       <Navbar />
       {/* Main Content */}
-      <Outlet />
+      <main className="mt-24">
+        <Outlet />
+      </main>
       {/* Footer */}
       <Footer />
     </div>
