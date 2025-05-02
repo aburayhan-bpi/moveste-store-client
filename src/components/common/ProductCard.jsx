@@ -9,11 +9,11 @@ const ProductCard = ({ product = {} }) => {
   return (
     <div>
       {/* <Link to="https://facebok.com" className="no-underline"> */}
-      <div className="flex flex-col w-full md:w-fit h-fit mx-auto border border-gray-200 rounded-md hover:shadow hover:cursor-pointer transition-all duration-200 bg-white">
+      <div className="group flex flex-col w-full md:w-full h-fit mx-auto border border-gray-200 rounded-md hover:shadow hover:cursor-pointer transition-all duration-200 bg-white">
         {/* Image Section */}
         <div className="h-60 w-full overflow-hidden">
           <img
-            className="w-full h-full object-fill md:object-cover cursor-pointer"
+            className="group-hover:scale-105 transition-all duration-300 w-full h-full object-fill md:object-cover cursor-pointer"
             src={product?.image}
             alt={product?.title}
           />

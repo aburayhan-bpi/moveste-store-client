@@ -67,9 +67,9 @@ const NewlyAddedProducts = () => {
             1280: {
               slidesPerView: 5,
             },
-            1440: {
-              slidesPerView: 6,
-            },
+            // 1440: {
+            //   slidesPerView: 6,
+            // },
           }}
           className="mySwiper"
         >

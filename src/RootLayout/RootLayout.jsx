@@ -9,8 +9,8 @@ const RootLayout = () => {
   const { scrollYProgress } = useScroll();
 
   return (
-    <div>
-      {/* Scroll Progress Bar */}
+    <div className="min-h-screen flex flex-col">
+      {/* Scroll Progress Bar (fixed at top) */}
       <motion.div
         style={{
           scaleX: scrollYProgress,
@@ -24,13 +24,13 @@ const RootLayout = () => {
           zIndex: 50,
         }}
       />
-      {/* Navbar */}
+
       <Navbar />
-      {/* Main Content */}
-      <main className="mt-24">
+
+      <div className="flex-grow pt-24">
         <Outlet />
-      </main>
-      {/* Footer */}
+      </div>
+
       <Footer />
     </div>
   );
