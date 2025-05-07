@@ -10,7 +10,7 @@ import "swiper/css/navigation";
 // Import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Link } from "react-router";
-
+import { Fade } from "react-awesome-reveal";
 const FeaturedSection = () => {
   const [products, setProducts] = useState(null);
 
@@ -24,13 +24,21 @@ const FeaturedSection = () => {
 
   return (
     <div className="pt-16 transition-all duration-200">
-      <div className="text-center mb-8">
-        <h2 className="text-4xl font-semibold">
-          <span className="text-[#47aaf5ec]">Featured</span> Products
-        </h2>
-        <p className="text-gray-600">
-          Discover Our Best-Selling and Most Loved Items
-        </p>
+      <div className="text-center mb-8  px-4 w-fit mx-auto">
+        {/* <ScrollAnimation> */}
+        <Fade direction="right" triggerOnce="true">
+          <h2 className="text-4xl font-semibold">
+            <span className="text-[#47aaf5ec]">Featured</span> Products
+          </h2>
+        </Fade>
+        {/* </ScrollAnimation> */}
+        {/* <ScrollAnimation direction="left"> */}
+        <Fade direction="left" triggerOnce="true">
+          <p className="text-gray-600">
+            Discover Our Best-Selling and Most Loved Items
+          </p>
+        </Fade>
+        {/* </ScrollAnimation> */}
       </div>
 
       {/* Swiper Section */}

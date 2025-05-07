@@ -1,4 +1,5 @@
 import React from "react";
+import { Fade } from "react-awesome-reveal";
 import { Link } from "react-router";
 
 const FeatureProductBanner = () => {
@@ -28,9 +29,11 @@ const FeatureProductBanner = () => {
       ].map((img, i) => (
         <div key={i} className={img.cols}>
           <Link className="block h-full z-20 no-underline">
-            <div className="flex items-center justify-center rounded-lg overflow-hidden h-full">
-              <img className="w-full rounded-lg" src={img.src} alt="" />
-            </div>
+            <Fade delay={100} triggerOnce='true'>
+              <div className="flex items-center justify-center rounded-lg overflow-hidden h-full">
+                <img className="w-full rounded-lg" src={img.src} alt="" />
+              </div>
+            </Fade>
           </Link>
         </div>
       ))}

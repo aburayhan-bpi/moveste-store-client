@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
 @import "tailwindcss";
+@plugin "daisyui";
 
 body {
   /* font-family: "Hanken Grotesk", sans-serif; */
@@ -56,3 +57,22 @@ a.active {
   color: #f85837 !important;
 }
 
+/* For WebKit browsers */
+::-webkit-scrollbar {
+  width: 10px; /* or any width you like */
+}
+
+::-webkit-scrollbar-track {
+  background: grey;
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: red;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff0000;
+}

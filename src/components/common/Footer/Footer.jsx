@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { IoMailOutline } from "react-icons/io5";
 import { PiPhoneCallThin } from "react-icons/pi";
+import { RiCloseLargeLine } from "react-icons/ri";
 import { Link } from "react-router";
 
 const Footer = () => {
+  const [searchText, setSearchText] = useState("");
   return (
     <footer className="w-full bg-sky-50 text-gray-800 pt-10 pb-4">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -28,6 +31,24 @@ const Footer = () => {
                 <IoMailOutline className="text-lg" />
                 moveste2230@gmail.com
               </p>
+            </div>
+
+            {/* Newsletter */}
+            <div className="flex w-fit xl:w-auto mx-auto mt-2">
+              <input
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
+                className="border text-sky-800 border-gray-300 rounded-l-sm px-3 py-2 focus:outline-none placeholder-gray-400 placeholder:text-sm focus:border-sky-500 transition duration-300"
+                type="email"
+                placeholder="Enter your email"
+              />
+              <button
+                // onClick={handleSubscribe}
+                className="hover:cursor-pointer bg-sky-500 hover:bg-sky-600 text-white px-1 lg:px-4 lg:py-2 rounded-r-sm text-xs lg:text-sm transition-all duration-200"
+              >
+                Subscribe
+              </button>
+              <div></div>
             </div>
 
             <div className="flex justify-center lg:justify-start mt-4 space-x-4 text-xl">

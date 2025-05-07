@@ -11,6 +11,7 @@ import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Link } from "react-router";
 
+import { Fade } from "react-awesome-reveal";
 const NewlyAddedProducts = () => {
   const [products, setProducts] = useState(null);
 
@@ -24,11 +25,17 @@ const NewlyAddedProducts = () => {
 
   return (
     <div className="pt-16 transition-all duration-200">
-      <div className="text-center mb-8">
-        <h2 className="text-4xl font-semibold">
-          <span className="text-[#47aaf5ec]">Newly</span> Added
-        </h2>
-        <p className="text-gray-600">Fresh Arrivals Designed for You</p>
+      <div className="text-center mb-8 px-4 w-fit mx-auto overflow-hidden">
+        {/* <ScrollAnimation once={true}> */}
+        <Fade direction="right" triggerOnce="true">
+          <h2 className="text-4xl font-semibold">
+            <span className="text-[#47aaf5ec]">Newly</span> Added
+          </h2>
+        </Fade>
+
+        <Fade direction="left" triggerOnce="true">
+          <p className="text-gray-600">Fresh Arrivals Designed for You</p>
+        </Fade>
       </div>
 
       {/* Swiper Section */}

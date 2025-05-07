@@ -1,10 +1,9 @@
-import { div } from "framer-motion/client";
 import React from "react";
 import { FaStar } from "react-icons/fa";
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 import { TbRosetteDiscountCheck, TbTruckDelivery } from "react-icons/tb";
 import { Link } from "react-router";
-
+import ScrollAnimation from "scroll-animation-framer-motion";
 const ProductCard = ({ product = {} }) => {
   return (
     <div>
@@ -13,7 +12,7 @@ const ProductCard = ({ product = {} }) => {
         {/* Image Section */}
         <div className="h-60 w-full overflow-hidden">
           <img
-            className="group-hover:scale-105 transition-all duration-300 w-full h-full object-fill md:object-cover cursor-pointer"
+            className="group-hover:scale-110 transition-all duration-400 w-full h-full object-fill md:object-cover cursor-pointer"
             src={product?.image}
             alt={product?.title}
           />

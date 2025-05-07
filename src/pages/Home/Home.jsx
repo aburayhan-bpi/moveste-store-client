@@ -9,6 +9,8 @@ import PolicyHighlights from "./PolicyHighlights/PolicyHighlights";
 import { Link } from "react-router";
 import FeatureProductBanner from "./FeatureProductBanner/FeatureProductBanner";
 import NewlyAddedProducts from "./NewlyAdded/NewlyAddedProducts";
+import ScrollAnimation from "scroll-animation-framer-motion";
+import { Fade } from "react-awesome-reveal";
 
 const Home = () => {
   // const [loading, setLoading] = useStaste(false);
@@ -54,7 +56,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="">
+    <div className="overflow-hidden">
       <Slider />
       <main className="max-w-7xl mx-auto px-4 xl:px-0">
         {/* Category Section */}
@@ -80,7 +82,11 @@ const Home = () => {
         <NewlyAddedProducts />
 
         {/* Payment & Refund System Highlights Section */}
-        <PolicyHighlights />
+        {/* <ScrollAnimation direction="down" once={true} delay={0.1}> */}
+        <div className="mt-60">
+          <PolicyHighlights />
+        </div>
+        {/* </ScrollAnimation> */}
       </main>
     </div>
   );

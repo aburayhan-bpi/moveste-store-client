@@ -43,7 +43,7 @@ const Slider = () => {
         pagination={{
           clickable: true,
         }}
-        // navigation={true}
+        navigation={true}
         rewind={true}
         modules={[Autoplay, Pagination, Navigation]}
         className="w-full h-full"
