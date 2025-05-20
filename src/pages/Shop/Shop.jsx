@@ -5,9 +5,13 @@ import { FaStar } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { MdFavoriteBorder } from "react-icons/md";
 import { RiCloseLargeFill } from "react-icons/ri";
+import { useAsyncError } from "react-router";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
+  //   const [minPrice, setMinPrice] = useState(0);
+  //   const [maxPrice, setMaxPrice] = useState(0);
+  const [priceRange, setPriceRange] = useState({ min: "", max: "" });
 
   useEffect(() => {
     fetch("./products.json")
@@ -23,36 +27,164 @@ const Shop = () => {
     return string.slice(0, limit) + "...";
   };
 
+//   console.log(priceRange);
+
   return (
     // pt-24
     <div className="w-full md:max-w-7xl mx-auto px-4 xl:px-0 pt-34 pb-100">
       <div className="grid grid-cols-12 gap-4">
         {/* Sidebar */}
         <aside className="hidden lg:block lg:col-span-3">
-          <div className="bg-sky-50 p-4 sticky top-34 max-h-[calc(100vh-6rem)] overflow-y-auto">
-            {/* Filter Options*/}
-            <div className="h-full">
-              <h3 className="text-lg font-semibold mb-2">Filters</h3>
-              <ul className="space-y-2 text-sm text-gray-700">
-                {Array(40)
-                  .fill()
-                  .map((_, i) => (
-                    <div key={i}>
-                      <li>
-                        <input type="checkbox" />
-                        <span className="ml-1">Brand A</span>
-                      </li>
-                      <li>
-                        <input type="checkbox" />
-                        <span className="ml-1">Brand B</span>
-                      </li>
-                      <li>
-                        <input type="checkbox" />
-                        <span className="ml-1">Brand C</span>
-                      </li>
+          <div
+            className="bg-sky-50 p-4 sticky top-24 h-[calc(100vh-8rem)] overflow-y-auto"
+            style={{ scrollbarGutter: "stable" }}
+          >
+            {/* Filter Options */}
+            <div className="h-full flex flex-col">
+              <h3 className="text-lg font-semibold mb-4">Filters</h3>
+
+              {/* Accordion container */}
+              <div className="space-y-4 w-full pb-8">
+                {/* Price Range Filter */}
+                <div className="collapse bg-white border border-gray-300 rounded-md shadow-sm px-2">
+                  <input type="checkbox" defaultChecked />
+                  <div className="collapse-title font-semibold text-sm border-b border-gray-200 cursor-pointer">
+                    Price Range
+                  </div>
+                  <div className="collapse-content text-sm space-y-3 py-2 px-1">
+                    <div className="flex flex-col gap-2">
+                      <label className="flex items-center gap-2">
+                        <span className="text-xs min-w-[30px]">Min:</span>
+                        <input
+                          type="number"
+                          placeholder="Min Price"
+                          min={0}
+                          value={priceRange.min}
+                          onChange={(e) =>
+                            setPriceRange((prev) => ({
+                              ...prev,
+                              min: +e.target.value,
+                            }))
+                          }
+                          className="input input-sm input-bordered w-full focus-within:border-none focus:outline-sky-400"
+                          onKeyDown={(e) =>
+                            ["e", "E", "+", "-"].includes(e.key) &&
+                            e.preventDefault()
+                          }
+                        />
+                      </label>
+                      <label className="flex items-center gap-2">
+                        <span className="text-xs min-w-[30px]">Max:</span>
+                        <input
+                          type="number"
+                          placeholder="Max Price"
+                          min={0}
+                          value={priceRange.max}
+                          onChange={(e) =>
+                            setPriceRange((prev) => ({
+                              ...prev,
+                              max: +e.target.value,
+                            }))
+                          }
+                          className="input input-sm input-bordered w-full focus-within:border-none focus:outline-sky-400"
+                          onKeyDown={(e) =>
+                            ["e", "E", "+", "-"].includes(e.key) &&
+                            e.preventDefault()
+                          }
+                        />
+                      </label>
                     </div>
-                  ))}
-              </ul>
+                  </div>
+                </div>
+
+                {/* Category Filter */}
+                <div className="collapse bg-white border border-gray-300 rounded-md shadow-sm px-2">
+                  <input type="checkbox" />
+                  <div className="collapse-title font-semibold text-sm border-b border-gray-200 cursor-pointer">
+                    Category
+                  </div>
+                  <div className="collapse-content text-sm space-y-2 py-2 px-1">
+                    {["T-Shirts", "Pants", "Jackets"].map((category) => (
+                      <label
+                        key={category}
+                        className="flex items-center gap-2 cursor-pointer select-none"
+                      >
+                        <input
+                          type="checkbox"
+                          className="checkbox checkbox-sm"
+                        />
+                        {category}
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Color Filter */}
+                <div className="collapse bg-white border border-gray-300 rounded-md shadow-sm px-2">
+                  <input type="checkbox" />
+                  <div className="collapse-title font-semibold text-sm border-b border-gray-200 cursor-pointer">
+                    Color
+                  </div>
+                  <div className="collapse-content text-sm flex flex-wrap gap-3 py-2 px-1">
+                    {["Red", "Blue", "Black", "White", "Green"].map((color) => (
+                      <label
+                        key={color}
+                        className="flex items-center gap-1 cursor-pointer select-none"
+                      >
+                        <input
+                          type="checkbox"
+                          className="checkbox checkbox-xs"
+                        />
+                        {color}
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Size Filter */}
+                <div className="collapse bg-white border border-gray-300 rounded-md shadow-sm px-2">
+                  <input type="checkbox" />
+                  <div className="collapse-title font-semibold text-sm border-b border-gray-200 cursor-pointer">
+                    Size
+                  </div>
+                  <div className="collapse-content text-sm space-y-1 py-2 px-1">
+                    {["S", "M", "L", "XL", "XXL"].map((size) => (
+                      <label
+                        key={size}
+                        className="flex items-center gap-2 cursor-pointer select-none"
+                      >
+                        <input
+                          type="checkbox"
+                          className="checkbox checkbox-sm"
+                        />
+                        {size}
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Brand Filter */}
+                <div className="collapse bg-white border border-gray-300 rounded-md shadow-sm px-2">
+                  <input type="checkbox" />
+                  <div className="collapse-title font-semibold text-sm border-b border-gray-200 cursor-pointer">
+                    Brand
+                  </div>
+                  <div className="collapse-content text-sm space-y-1 py-2 px-1">
+                    {["Nike", "Adidas", "Puma", "Zara"].map((brand) => (
+                      <label
+                        key={brand}
+                        className="flex items-center gap-2 cursor-pointer select-none"
+                      >
+                        <input
+                          type="checkbox"
+                          className="checkbox checkbox-sm"
+                        />
+                        {brand}
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </aside>
@@ -148,7 +280,7 @@ const Shop = () => {
           <div className="bg-sky-50 p-4 h-full">
             {/* Edit or Modify this card with actual data ---!important */}
             <div className="grid gap-4 items-center justify-center grid-cols-1 md:grid-cols-3 xl:grid-cols-4 box-border h-full w-full">
-              {Array(12)
+              {Array(20)
                 .fill()
                 .map((_, i) => (
                   <div
