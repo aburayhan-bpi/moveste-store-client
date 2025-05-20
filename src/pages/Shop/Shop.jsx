@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 
 import { useState } from "react";
+import { FaStar } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { MdFavoriteBorder } from "react-icons/md";
 import { RiCloseLargeFill } from "react-icons/ri";
@@ -15,7 +16,13 @@ const Shop = () => {
         setProducts(data);
       });
   }, []);
-  console.log(products);
+
+  //   Truncate long text
+  const truncString = (string, limit) => {
+    if (string.length <= limit) return string;
+    return string.slice(0, limit) + "...";
+  };
+
   return (
     // pt-24
     <div className="w-full md:max-w-7xl mx-auto px-4 xl:px-0 pt-34 pb-100">
@@ -56,7 +63,9 @@ const Shop = () => {
           <div className="flex items-center justify-between bg-sky-50 px-4 py-3 mb-3">
             {/* Title */}
             <div>
-              <h2 className="text-lg font-semibold text-gray-800">Joshim 😁</h2>
+              <h2 className="text-lg font-semibold text-gray-800">
+                Products on board
+              </h2>
               <p className="text-xs text-gray-600">87 products</p>
             </div>
 
@@ -137,26 +146,56 @@ const Shop = () => {
 
           {/* Product grid area */}
           <div className="bg-sky-50 p-4 h-full">
-            {/* Replace this with actual product cards */}
-            <div className="grid gap-6 items-center justify-center grid-cols-1 md:grid-cols-3 lg:grid-cols-4 box-border h-full w-full">
-              {products.map((p) => (
-                <div key={p._id} className="w-full h-full bg-white p-2 rounded-lg">
-                  <img src={p?.image} alt={p?.title} />
-                  <div>
-                    <h2>{p?.title}</h2>
-                    <p>${p?.price}</p>
-                    <div className="flex items-center gap-1">
-                      <div>
-                        {p?.rating?.score} ({p?.rating?.reviews})
-                      </div>
-                      <div>
-                        <MdFavoriteBorder />
-                        <IoCartOutline />
+            {/* Edit or Modify this card with actual data ---!important */}
+            <div className="grid gap-4 items-center justify-center grid-cols-1 md:grid-cols-3 xl:grid-cols-4 box-border h-full w-full">
+              {Array(12)
+                .fill()
+                .map((_, i) => (
+                  <div
+                    key={i}
+                    className="relative w-full h-full bg-white p-3 rounded-lg"
+                  >
+                    <img
+                      className=" rounded-lg"
+                      src="https://i.ibb.co/sJJJ10vQ/t-shirt-removebg-preview.png"
+                      alt=""
+                    />
+                    <div className="absolute top-0 left-0 bg-yellow-500 text-white text-sm px-2 rounded uppercase">
+                      15% off
+                    </div>
+                    <div className="flex flex-col flex-1">
+                      <h2 className="font-semibold hover:underline decoration-blue-200 transition-all duration-300 hover:cursor-pointer">
+                        {truncString(
+                          "Assertively pursue business schemas...",
+                          100
+                        )}
+                      </h2>
+                      <p>$100</p>
+                      <div className="flex items-center justify-between">
+                        {/* Rating */}
+                        <div className="flex items-center gap-x-0.5">
+                          {Array.from({ length: 5 }, (_, index) => (
+                            <FaStar
+                              key={index}
+                              className={`${
+                                3.5 > index
+                                  ? "text-yellow-500"
+                                  : "text-gray-300"
+                              }`}
+                            />
+                          ))}
+                          <div className="flex gap-1 ml-2 text-xs text-gray-600">
+                            <span className="text-gray-400">(734)</span>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <MdFavoriteBorder className="text-lg text-sky-600 hover:text-sky-500 hover:cursor-pointer transition-colors duration-300" />
+                          <IoCartOutline className="text-lg text-sky-600 hover:text-sky-500 hover:cursor-pointer transition-colors duration-300" />
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
             </div>
           </div>
         </main>
