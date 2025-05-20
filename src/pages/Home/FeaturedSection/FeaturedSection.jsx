@@ -21,9 +21,11 @@ const FeaturedSection = () => {
         setProducts(data);
       });
   }, []);
+  
 
   return (
     <div className="pt-16 transition-all duration-200">
+        
       <div className="text-center mb-8  px-4 w-fit mx-auto">
         {/* <ScrollAnimation> */}
         <Fade direction="right" triggerOnce="true">

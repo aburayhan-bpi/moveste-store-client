@@ -3,12 +3,12 @@ import { FaStar } from "react-icons/fa";
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 import { TbRosetteDiscountCheck, TbTruckDelivery } from "react-icons/tb";
 import { Link } from "react-router";
-import ScrollAnimation from "scroll-animation-framer-motion";
+
 const ProductCard = ({ product = {} }) => {
   return (
     <div>
       {/* <Link to="https://facebok.com" className="no-underline"> */}
-      <div className="group flex flex-col w-full md:w-full h-fit mx-auto border border-gray-200 rounded-md hover:shadow hover:cursor-pointer transition-all duration-200 bg-white">
+      <div className="group flex flex-col w-full md:w-full h-full mx-auto border border-gray-200 rounded-md hover:shadow hover:cursor-pointer transition-all duration-200 bg-white">
         {/* Image Section */}
         <div className="h-60 w-full overflow-hidden">
           <img

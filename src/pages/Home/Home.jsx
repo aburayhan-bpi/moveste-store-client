@@ -9,11 +9,11 @@ import PolicyHighlights from "./PolicyHighlights/PolicyHighlights";
 import { Link } from "react-router";
 import FeatureProductBanner from "./FeatureProductBanner/FeatureProductBanner";
 import NewlyAddedProducts from "./NewlyAdded/NewlyAddedProducts";
-import ScrollAnimation from "scroll-animation-framer-motion";
+
 import { Fade } from "react-awesome-reveal";
 
 const Home = () => {
-  // const [loading, setLoading] = useStaste(false);
+  // const [loading, setLoading] = useState(false);
   const categoryProduct = [
     {
       _id: 1,

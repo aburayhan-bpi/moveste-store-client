@@ -1,14 +1,21 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
+import { useState } from "react";
+import { IoCartOutline } from "react-icons/io5";
+import { MdFavoriteBorder } from "react-icons/md";
 import { RiCloseLargeFill } from "react-icons/ri";
 
 const Shop = () => {
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-  }, []);
+  const [products, setProducts] = useState([]);
 
+  useEffect(() => {
+    fetch("./products.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data);
+      });
+  }, []);
+  console.log(products);
   return (
     // pt-24
     <div className="w-full md:max-w-7xl mx-auto px-4 xl:px-0 pt-34 pb-100">
@@ -23,21 +30,20 @@ const Shop = () => {
                 {Array(40)
                   .fill()
                   .map((_, i) => (
-                    <>
-                      {" "}
-                      <li key={i}>
-                        <input type="checkbox" />{" "}
+                    <div key={i}>
+                      <li>
+                        <input type="checkbox" />
                         <span className="ml-1">Brand A</span>
                       </li>
                       <li>
-                        <input type="checkbox" />{" "}
+                        <input type="checkbox" />
                         <span className="ml-1">Brand B</span>
                       </li>
                       <li>
-                        <input type="checkbox" />{" "}
+                        <input type="checkbox" />
                         <span className="ml-1">Brand C</span>
                       </li>
-                    </>
+                    </div>
                   ))}
               </ul>
             </div>
@@ -133,19 +139,24 @@ const Shop = () => {
           <div className="bg-sky-50 p-4 h-full">
             {/* Replace this with actual product cards */}
             <div className="grid gap-6 items-center justify-center grid-cols-1 md:grid-cols-3 lg:grid-cols-4 box-border h-full w-full">
-              {Array(50)
-                .fill()
-                .map((_, i) => (
-                  <div key={i} className="rounded-md flex-grow">
-                    <div>
-                      <img
-                        className="rounded-md"
-                        src="https://i.ibb.co.com/Vx6M4w3/image-106696-1602150409.jpg"
-                        alt=""
-                      />
+              {products.map((p) => (
+                <div key={p._id} className="w-full h-full bg-white p-2 rounded-lg">
+                  <img src={p?.image} alt={p?.title} />
+                  <div>
+                    <h2>{p?.title}</h2>
+                    <p>${p?.price}</p>
+                    <div className="flex items-center gap-1">
+                      <div>
+                        {p?.rating?.score} ({p?.rating?.reviews})
+                      </div>
+                      <div>
+                        <MdFavoriteBorder />
+                        <IoCartOutline />
+                      </div>
                     </div>
                   </div>
-                ))}
+                </div>
+              ))}
             </div>
           </div>
         </main>
