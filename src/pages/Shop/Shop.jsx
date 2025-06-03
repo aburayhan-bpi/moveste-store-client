@@ -5,13 +5,42 @@ import { FaStar } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { MdFavoriteBorder } from "react-icons/md";
 import { RiCloseLargeFill } from "react-icons/ri";
-import { useAsyncError } from "react-router";
+import Sidebar from "./Sidebar";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
   //   const [minPrice, setMinPrice] = useState(0);
   //   const [maxPrice, setMaxPrice] = useState(0);
-  const [priceRange, setPriceRange] = useState({ min: "", max: "" });
+  //   const [priceRange, setPriceRange] = useState({ min: "", max: "" });
+  //   const [category, setCategory] = useState([]);
+  //   const [color, setColor] = useState([]);
+  //   const [size, setSize] = useState([]);
+  //   const [brand, setBrand] = useState([]);
+  const [filters, setFilters] = useState({
+    priceRange: { min: "", max: "" },
+    category: [],
+    color: [],
+    size: [],
+    brand: [],
+  });
+
+  const updateFilter = (key, value) => {
+    setFilters((prev) => ({
+      ...prev,
+      [key]: value,
+    }));
+  };
+
+  const updatePriceRange = (minOrMax, value) => {
+    setFilters((prev) => ({
+      ...prev,
+      priceRange: {
+        ...prev.priceRange,
+        [minOrMax]: value,
+      },
+    }));
+  };
+  console.log(filters);
 
   useEffect(() => {
     fetch("./products.json")
@@ -27,7 +56,8 @@ const Shop = () => {
     return string.slice(0, limit) + "...";
   };
 
-//   console.log(priceRange);
+  //   console.log(priceRange);
+  // console.log(priceRange);
 
   return (
     // pt-24
@@ -40,152 +70,12 @@ const Shop = () => {
             style={{ scrollbarGutter: "stable" }}
           >
             {/* Filter Options */}
-            <div className="h-full flex flex-col">
-              <h3 className="text-lg font-semibold mb-4">Filters</h3>
-
-              {/* Accordion container */}
-              <div className="space-y-4 w-full pb-8">
-                {/* Price Range Filter */}
-                <div className="collapse bg-white border border-gray-300 rounded-md shadow-sm px-2">
-                  <input type="checkbox" defaultChecked />
-                  <div className="collapse-title font-semibold text-sm border-b border-gray-200 cursor-pointer">
-                    Price Range
-                  </div>
-                  <div className="collapse-content text-sm space-y-3 py-2 px-1">
-                    <div className="flex flex-col gap-2">
-                      <label className="flex items-center gap-2">
-                        <span className="text-xs min-w-[30px]">Min:</span>
-                        <input
-                          type="number"
-                          placeholder="Min Price"
-                          min={0}
-                          value={priceRange.min}
-                          onChange={(e) =>
-                            setPriceRange((prev) => ({
-                              ...prev,
-                              min: +e.target.value,
-                            }))
-                          }
-                          className="input input-sm input-bordered w-full focus-within:border-none focus:outline-sky-400"
-                          onKeyDown={(e) =>
-                            ["e", "E", "+", "-"].includes(e.key) &&
-                            e.preventDefault()
-                          }
-                        />
-                      </label>
-                      <label className="flex items-center gap-2">
-                        <span className="text-xs min-w-[30px]">Max:</span>
-                        <input
-                          type="number"
-                          placeholder="Max Price"
-                          min={0}
-                          value={priceRange.max}
-                          onChange={(e) =>
-                            setPriceRange((prev) => ({
-                              ...prev,
-                              max: +e.target.value,
-                            }))
-                          }
-                          className="input input-sm input-bordered w-full focus-within:border-none focus:outline-sky-400"
-                          onKeyDown={(e) =>
-                            ["e", "E", "+", "-"].includes(e.key) &&
-                            e.preventDefault()
-                          }
-                        />
-                      </label>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Category Filter */}
-                <div className="collapse bg-white border border-gray-300 rounded-md shadow-sm px-2">
-                  <input type="checkbox" />
-                  <div className="collapse-title font-semibold text-sm border-b border-gray-200 cursor-pointer">
-                    Category
-                  </div>
-                  <div className="collapse-content text-sm space-y-2 py-2 px-1">
-                    {["T-Shirts", "Pants", "Jackets"].map((category) => (
-                      <label
-                        key={category}
-                        className="flex items-center gap-2 cursor-pointer select-none"
-                      >
-                        <input
-                          type="checkbox"
-                          className="checkbox checkbox-sm"
-                        />
-                        {category}
-                      </label>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Color Filter */}
-                <div className="collapse bg-white border border-gray-300 rounded-md shadow-sm px-2">
-                  <input type="checkbox" />
-                  <div className="collapse-title font-semibold text-sm border-b border-gray-200 cursor-pointer">
-                    Color
-                  </div>
-                  <div className="collapse-content text-sm flex flex-wrap gap-3 py-2 px-1">
-                    {["Red", "Blue", "Black", "White", "Green"].map((color) => (
-                      <label
-                        key={color}
-                        className="flex items-center gap-1 cursor-pointer select-none"
-                      >
-                        <input
-                          type="checkbox"
-                          className="checkbox checkbox-xs"
-                        />
-                        {color}
-                      </label>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Size Filter */}
-                <div className="collapse bg-white border border-gray-300 rounded-md shadow-sm px-2">
-                  <input type="checkbox" />
-                  <div className="collapse-title font-semibold text-sm border-b border-gray-200 cursor-pointer">
-                    Size
-                  </div>
-                  <div className="collapse-content text-sm space-y-1 py-2 px-1">
-                    {["S", "M", "L", "XL", "XXL"].map((size) => (
-                      <label
-                        key={size}
-                        className="flex items-center gap-2 cursor-pointer select-none"
-                      >
-                        <input
-                          type="checkbox"
-                          className="checkbox checkbox-sm"
-                        />
-                        {size}
-                      </label>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Brand Filter */}
-                <div className="collapse bg-white border border-gray-300 rounded-md shadow-sm px-2">
-                  <input type="checkbox" />
-                  <div className="collapse-title font-semibold text-sm border-b border-gray-200 cursor-pointer">
-                    Brand
-                  </div>
-                  <div className="collapse-content text-sm space-y-1 py-2 px-1">
-                    {["Nike", "Adidas", "Puma", "Zara"].map((brand) => (
-                      <label
-                        key={brand}
-                        className="flex items-center gap-2 cursor-pointer select-none"
-                      >
-                        <input
-                          type="checkbox"
-                          className="checkbox checkbox-sm"
-                        />
-                        {brand}
-                      </label>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
+            {/* <Sidebar priceRange={priceRange} setPriceRange={setPriceRange} /> */}
+            <Sidebar
+              filters={filters}
+              updateFilter={updateFilter}
+              updatePriceRange={updatePriceRange}
+            />
           </div>
         </aside>
 
@@ -204,7 +94,7 @@ const Shop = () => {
             {/* Filer & Sort Container */}
             <div className="flex items-center gap-4 lg:w-70">
               {/* Filter button on mobile */}
-              <div className="drawer z-50">
+              <div className="drawer">
                 <input
                   id="my-drawer"
                   type="checkbox"
@@ -232,7 +122,7 @@ const Shop = () => {
                     </div>
                   </label>
                 </div>
-                <div className="drawer-side">
+                <div className="drawer-side z-60">
                   <label
                     htmlFor="my-drawer"
                     aria-label="close sidebar"
@@ -254,12 +144,23 @@ const Shop = () => {
                       <RiCloseLargeFill className="text-lg transition-transform duration-300 ease-in-out hover:rotate-180 hover:scale-125 cursor-pointer" />
                     </div>
                     {/* Sidebar content here */}
-                    <li>
-                      <p>Sidebar Item 1</p>
-                    </li>
-                    <li>
-                      <p>Sidebar Item 2</p>
-                    </li>
+                    {/* <Sidebar
+                      priceRange={priceRange}
+                      setPriceRange={setPriceRange}
+                      category={category}
+                      setCategory={setCategory}
+                      color={color}
+                      setColor={setColor}
+                      size={size}
+                      setSize={setSize}
+                      brand={brand}
+                      setBrand={setBrand}
+                    /> */}
+                    <Sidebar
+                      filters={filters}
+                      updateFilter={updateFilter}
+                      updatePriceRange={updatePriceRange}
+                    />
                   </ul>
                 </div>
               </div>

@@ -56,7 +56,7 @@ const Navbar = () => {
   }, [menuOpen]);
 
   return (
-    <div className="bg-sky-50 fixed z-40 top-0 left-0 right-0 w-full">
+    <div className="bg-sky-50 fixed z-30 top-0 left-0 right-0 w-full">
       <div className="  max-w-7xl mx-auto px-0 lg:px-4 xl:px-0">
         <div className="flex items-center justify-between py-4 px-4 lg:px-0 w-full mx-auto">
           {/* Left - Logo */}
