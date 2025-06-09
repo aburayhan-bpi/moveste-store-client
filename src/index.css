@@ -19,7 +19,7 @@ a:not(.no-underline) {
   text-decoration: none;
 }
 
-a:not(.no-underline)::after {
+/* a:not(.no-underline)::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -32,7 +32,7 @@ a:not(.no-underline)::after {
 
 a:not(.no-underline):hover::after {
   width: 100%;
-}
+} */
 
 /* Keep your other existing styles as-is */
 body {

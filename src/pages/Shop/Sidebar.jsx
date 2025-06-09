@@ -57,7 +57,7 @@ const Sidebar = ({ filters, updateFilter, updatePriceRange }) => {
 
         {/* Category */}
         <div className="collapse bg-white border border-gray-300 rounded-md shadow-sm px-2">
-          <input type="checkbox" />
+          <input type="checkbox" defaultChecked/>
           <div className="collapse-title font-semibold text-sm border-b border-gray-200 cursor-pointer">
             Category
           </div>
@@ -81,7 +81,7 @@ const Sidebar = ({ filters, updateFilter, updatePriceRange }) => {
 
         {/* Color */}
         <div className="collapse bg-white border border-gray-300 rounded-md shadow-sm px-2">
-          <input type="checkbox" />
+          <input type="checkbox" defaultChecked/>
           <div className="collapse-title font-semibold text-sm border-b border-gray-200 cursor-pointer">
             Color
           </div>
@@ -105,7 +105,7 @@ const Sidebar = ({ filters, updateFilter, updatePriceRange }) => {
 
         {/* Size */}
         <div className="collapse bg-white border border-gray-300 rounded-md shadow-sm px-2">
-          <input type="checkbox" />
+          <input type="checkbox" defaultChecked/>
           <div className="collapse-title font-semibold text-sm border-b border-gray-200 cursor-pointer">
             Size
           </div>
@@ -129,7 +129,7 @@ const Sidebar = ({ filters, updateFilter, updatePriceRange }) => {
 
         {/* Brand */}
         <div className="collapse bg-white border border-gray-300 rounded-md shadow-sm px-2">
-          <input type="checkbox" />
+          <input type="checkbox" defaultChecked/>
           <div className="collapse-title font-semibold text-sm border-b border-gray-200 cursor-pointer">
             Brand
           </div>
