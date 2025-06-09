@@ -44,7 +44,7 @@ const Footer = () => {
               />
               <button
                 // onClick={handleSubscribe}
-                className="hover:cursor-pointer bg-sky-800 hover:bg-sky-900 text-white px-1 lg:px-4 lg:py-2 rounded-r-sm text-xs lg:text-sm transition-all duration-200"
+                className="hover:cursor-pointer bg-sky-500 hover:bg-sky-600 text-white px-1 lg:px-4 lg:py-2 rounded-r-sm text-xs lg:text-sm transition-all duration-200"
               >
                 Subscribe
               </button>
