@@ -1,0 +1,66 @@
+[
+  {
+    "id": "TSH2001",
+    "name": "Graphic Cotton T-shirt",
+    "variant": {
+      "color": "Black",
+      "size": "L"
+    },
+    "availability": "in-stock",
+    "price": {
+      "unit": 39.99
+    },
+    "quantity": 10,
+    "image": "https://i.ibb.co/sJJJ10vQ/t-shirt-removebg-preview.png",
+    "sku": "GCT-BLK-L",
+    "category": "Apparel > Men > T-shirts"
+  },
+  {
+    "id": "TSH2002",
+    "name": "Slim Fit V-Neck Tee",
+    "variant": {
+      "color": "White",
+      "size": "M"
+    },
+    "availability": "in-stock",
+    "price": {
+      "unit": 29.95
+    },
+    "quantity": 10,
+    "image": "https://i.ibb.co/sJJJ10vQ/t-shirt-removebg-preview.png",
+    "sku": "SFV-WHT-M",
+    "category": "Apparel > Men > T-shirts"
+  },
+  {
+    "id": "TSH2003",
+    "name": "Organic Crew Neck T-shirt",
+    "variant": {
+      "color": "Navy",
+      "size": "XL"
+    },
+    "availability": "stock-out",
+    "price": {
+      "unit": 45.5
+    },
+    "quantity": 10,
+    "image": "https://i.ibb.co/sJJJ10vQ/t-shirt-removebg-preview.png",
+    "sku": "OCN-NAVY-XL",
+    "category": "Apparel > Men > T-shirts"
+  },
+  {
+    "id": "TSH2004",
+    "name": "Heavyweight Oversized Tee",
+    "variant": {
+      "color": "Gray",
+      "size": "S"
+    },
+    "availability": "in-stock",
+    "price": {
+      "unit": 59.0
+    },
+    "quantity": 10,
+    "image": "https://i.ibb.co/sJJJ10vQ/t-shirt-removebg-preview.png",
+    "sku": "HOT-GRY-S",
+    "category": "Apparel > Men > T-shirts"
+  }
+]
