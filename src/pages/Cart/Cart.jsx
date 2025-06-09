@@ -1,13 +1,83 @@
+import { useEffect, useState } from "react";
+import { BsPlusLg } from "react-icons/bs";
+import { HiMinus } from "react-icons/hi";
 const Cart = () => {
+  const [basePrice] = useState(51.34);
+  const [quantity, setQuantity] = useState(1);
+  const [eachTotal, setEachTotal] = useState(basePrice);
+
+  useEffect(() => {
+    setEachTotal((quantity * basePrice).toFixed(2));
+  }, [quantity, setQuantity, basePrice]);
+  console.log(quantity, eachTotal);
+
   return (
     <div className="">
       <div className="w-full max-w-7xl mx-auto px-4 xl:px-0 mt-32 pb-20">
         {/* Cart Section Start */}
         <div className="md:grid grid-cols-12 space-y-6 md:space-y-0 md:gap-10">
           {/* Main */}
-          <div className="col-span-8 border border-gray-200">Main</div>
+          <div className="col-span-8 border-gray-200">
+            {/* Cart Product Item */}
+            <div className="grid grid-cols-12 gap-6 border-t pt-4 border-b border-gray-200">
+              <div className="col-span-6 flex w-full gap-3">
+                {/* Img */}
+                <div className="w-fit">
+                  <img
+                    className="w-32"
+                    src="https://i.ibb.co/sJJJ10vQ/t-shirt-removebg-preview.png"
+                    alt=""
+                  />
+                </div>
+                {/* Product Info */}
+                <div className="w-fit text-gray-800 text-sm text-wrap h-fit">
+                  <h2 className="text-xl mb-3 break-all">T-shirt for men</h2>
+                  <p>Color: Blue</p>
+                  <p>Size: XL</p>
+                  <p>
+                    Availability:{" "}
+                    <span className="bg-green-100 text-green-800 badge-xs text-xs rounded-2xl">
+                      In Stock
+                    </span>
+                  </p>
+                </div>
+              </div>
+              {/* Others */}
+              {/* Each Price */}
+              <div className="col-span-2">
+                <p>Each</p>
+                <p className="font-semibold">$51.54</p>
+              </div>
+              {/* Quantity Controller */}
+              <div className="col-span-2">
+                <p className="">Quantity</p>
+                <div className="flex items-center justify-start">
+                  <button
+                    onClick={() => quantity > 1 && setQuantity(quantity - 1)}
+                    className="inline-flex items-center justify-center w-8 h-8 border border-gray-200 hover:cursor-pointer"
+                  >
+                    <HiMinus />
+                  </button>
+                  <span className="inline-flex items-center justify-center w-8 h-8 border border-gray-200">
+                    {quantity}
+                  </span>
+                  <button
+                    onClick={() => setQuantity(quantity + 1)}
+                    className="inline-flex items-center justify-center w-8 h-8 border border-gray-200 hover:cursor-pointer"
+                  >
+                    <BsPlusLg />
+                  </button>
+                </div>
+              </div>
+              {/* Total for each product based on Quantity */}
+              <div className="col-span-2">
+                <p>Total</p>
+                <p className="font-semibold">${eachTotal}</p>
+              </div>
+            </div>
+          </div>
           {/* Sidebar */}
-          <div className="items-center justify-center col-span-4 border-gray-200 p-2">
+          <div className="sticky top-20 items-center justify-center col-span-4 border-gray-200 p-2">
             {/* Promo Code Input Field & Buttons Start */}
             <div className="flex items-center">
               <div className="flex flex-col">
